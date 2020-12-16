@@ -7,6 +7,24 @@ function updateSubtotal(product) {
   return Number(price) * Number(quantity)
 }
 
+// ITERATION 2
+
+function calculateAll() {
+
+  const $products = document.getElementsByClassName('product');
+  let totalValue = 0;
+  for (let $product of $products) {
+    totalValue += updateSubtotal($product);
+  }
+
+// ITERATION 3
+
+
+  document.querySelector('#total-value span').innerHTML = totalValue;
+}
+const $calculateTrigger = document.getElementById('calculate');
+$calculateTrigger.addEventListener('click', calculateAll);
+
 //ITERATION 4
 
 function removeProduct(event) {
@@ -39,4 +57,4 @@ function createProduct() {
 // 
 
 
-Bonus
+
