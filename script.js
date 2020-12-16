@@ -7,3 +7,36 @@ function updateSubtotal(product) {
   return Number(price) * Number(quantity)
 }
 
+//ITERATION 4
+
+function removeProduct(event) {
+  const target = event.currentTarget;
+  console.log('The target in remove is:', target.parentNode.parentNode);
+  target.parentNode.parentNode.parentNode.removeChild(target.parentNode.parentNode);
+}
+
+//ITERATION 5
+
+
+et bodyEl = document.querySelector('.product');
+function createProduct() {
+  //... your code goes here
+  let price = document.getElementById('create-price').value;
+  let name = document.getElementById('create-name').value;
+  let clonedEl = bodyEl.cloneNode(true);
+  clonedEl.querySelector('.name span').innerText = name;
+  clonedEl.querySelector('.price span').innerText = price;
+  clonedEl.querySelector('.quantity input').value = 0;
+  document.querySelector('tbody').appendChild(clonedEl);
+  let removeBtns = document.querySelectorAll('.btn-remove');
+  removeBtns.forEach((btn) => {
+    btn.addEventListener('click', removeProduct);
+  })
+  // Remove the values from create input fields
+  document.getElementById('create-price').value = 0;
+  document.getElementById('create-name').value = "";
+}
+// 
+
+
+Bonus
